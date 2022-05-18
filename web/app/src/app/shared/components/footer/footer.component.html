@@ -2,6 +2,8 @@
     id="footer"
     class="mat-elevation-z1"
     role="contentinfo"
+    [ngClass]="{'footer-vertical': _conf.vertical(),
+                'footer-horizontal': _conf.horizontal()}"
 >
     
 </div>

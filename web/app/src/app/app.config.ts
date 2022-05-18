@@ -1,5 +1,14 @@
 import { IconConfig, ImgConfig } from "src/properties";
 
+export enum orientations{
+  vertical = 'vertical',
+  horizontal = 'horizontal'
+}
+
+export const APP_CONFIG: any = {
+  orientation: orientations.vertical
+}
+
 export const ASSET_CONFIG: ImgConfig[] =[
     {
         src: '/assets/imgs/404.jpg',

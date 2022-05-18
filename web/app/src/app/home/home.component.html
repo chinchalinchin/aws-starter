@@ -1,6 +1,7 @@
 <div 
     id="home"
-    class="viewport"
     role="region"
+    [ngClass]="{'viewport-vertical' : _conf.vertical(), 
+                'viewport-horizontal': _conf.horizontal()}"
 >
 </div>

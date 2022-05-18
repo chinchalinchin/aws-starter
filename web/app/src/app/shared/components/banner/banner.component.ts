@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfService } from 'src/services/conf.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public _conf: ConfService
+  ) { }
 
   ngOnInit(): void {
   }

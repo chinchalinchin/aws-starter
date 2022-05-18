@@ -3,9 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.viewport{
+.viewport-horizontal{
     position: absolute;
     top: 10%;
     width: 100%;
     height: 87.5%;
+}
+.viewport-vertical{
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    width: 85%;
+    height: 97.5%;
 }
