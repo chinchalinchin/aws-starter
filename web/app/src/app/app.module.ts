@@ -15,10 +15,12 @@ import { MetaService } from 'src/services/meta.service';
 import { ASSET_CONFIG, ICON_CONFIG } from './app.config';
 import { IconConfig, ImgConfig } from 'src/properties';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -5,9 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
 import { SharedMaterialModule } from './shared-material.module';
 import { SafePipe } from './pipes/sanitize.pipe';
+import { BannerComponent } from './components/banner/banner.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [ErrorComponent, SafePipe],
+  declarations: [
+    ErrorComponent, 
+    SafePipe, 
+    BannerComponent, 
+    FooterComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -16,6 +23,9 @@ import { SafePipe } from './pipes/sanitize.pipe';
     SharedMaterialModule,
   ],
   exports: [
+    ErrorComponent,
+    BannerComponent,
+    FooterComponent,
     CommonModule,
     HttpClientModule,
     FormsModule,

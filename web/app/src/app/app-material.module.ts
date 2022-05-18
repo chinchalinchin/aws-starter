@@ -10,7 +10,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [],
   imports: [
-    MatBottomSheetModule,
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
@@ -18,7 +17,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
   ],
   exports: [
-    MatBottomSheetModule,
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
