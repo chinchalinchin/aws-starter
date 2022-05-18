@@ -9,7 +9,6 @@ import { ImgConfig } from 'src/properties';
   providedIn: 'root'
 })
 export class ConfService {
-
   public title: string = APP_CONFIG.title;
   public description: string = APP_CONFIG.description;
   public orientation: orientations = APP_CONFIG.orientation;
@@ -37,5 +36,16 @@ export class ConfService {
 
   public getMenuNavs(): Nav[]{
     return this.navConfig.filter((nav:Nav) => nav.menu);
+  }
+
+  public flipOrientation(): void{
+    switch(this.orientation){
+      case orientations.vertical:
+        this.orientation = orientations.horizontal;
+        break;
+      case orientations.horizontal:
+        this.orientation = orientations.vertical;
+        break;
+    }
   }
 }

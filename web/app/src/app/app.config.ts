@@ -8,12 +8,12 @@ export enum orientations{
 export const APP_CONFIG: any = {
   title: 'Company Name',
   description: 'Company Description',
-  orientation: orientations.vertical
+  orientation: orientations.horizontal
 };
 
 export const ASSET_CONFIG: ImgConfig[] =[
     {
-        src: '/assets/imgs/404.jpg',
+        src: '/assets/imgs/404.png',
         alt: 'Page Not Found',
         title: '404 Error',
         id: '404-img',

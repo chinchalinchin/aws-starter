@@ -21,7 +21,10 @@
         class="spacer" 
         aria-hidden="true"
     ></div>
-    <mat-divider *ngIf="_conf.vertical()" style="padding-bottom: 5%;"></mat-divider>
+    <mat-divider 
+        *ngIf="_conf.vertical()" 
+        style="padding-bottom: 5%;"
+    ></mat-divider>
     <div 
         *ngFor="let nav of navConf"
         class="nav-link"
@@ -31,6 +34,7 @@
     >
         <a
             [id]="nav.nav_id"
+            class="mat-h2"
             [routerLink]="nav.path"
             *ngIf="!nav.children"
         >

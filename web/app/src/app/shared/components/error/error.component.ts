@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ImgConfig } from 'src/properties';
+import { ConfService } from 'src/services/conf.service';
 
 @Component({
   selector: 'app-error',
@@ -6,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error.component.css'],
 })
 export class ErrorComponent implements OnInit {
-  constructor() {}
+
+  public errorConf: ImgConfig | undefined;
+  
+  constructor(
+    public _conf: ConfService
+  ) {
+    this.errorConf = this._conf.getImgConfig('404-img')
+  }
 
   ngOnInit(): void {}
 }
