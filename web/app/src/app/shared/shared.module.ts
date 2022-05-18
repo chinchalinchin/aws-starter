@@ -10,27 +10,30 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    ErrorComponent, 
-    SafePipe, 
     BannerComponent, 
-    FooterComponent
+    ErrorComponent, 
+    FooterComponent,
+    
+    SafePipe, 
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     SharedMaterialModule,
   ],
   exports: [
-    ErrorComponent,
     BannerComponent,
+    ErrorComponent,
     FooterComponent,
+
     CommonModule,
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     SharedMaterialModule,
+
     SafePipe,
   ],
 })
