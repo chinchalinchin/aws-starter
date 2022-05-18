@@ -16,11 +16,18 @@
                     'logo-vertical': _conf.vertical()}"
     ></object>
 
-    <div class="spacer"></div>
-
+    <div 
+        *ngIf="_conf.horizontal()" 
+        class="spacer" 
+        aria-hidden="true"
+    ></div>
+    <mat-divider *ngIf="_conf.vertical()" style="padding-bottom: 5%;"></mat-divider>
     <div 
         *ngFor="let nav of navConf"
-        class="nav-link v-align-flex"
+        class="nav-link"
+        [ngClass]=" {'v-align-flex': _conf.horizontal(),
+                     'h-align-flex': _conf.vertical(),
+                     'vert-nav-link': _conf.vertical()}"
     >
         <a
             [id]="nav.nav_id"

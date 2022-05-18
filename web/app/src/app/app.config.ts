@@ -8,7 +8,7 @@ export enum orientations{
 export const APP_CONFIG: any = {
   title: 'Company Name',
   description: 'Company Description',
-  orientation: orientations.horizontal
+  orientation: orientations.vertical
 };
 
 export const ASSET_CONFIG: ImgConfig[] =[
