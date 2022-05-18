@@ -26,11 +26,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .viewport-horizontal-alt{
     position: absolute;
-    top: 34.445%;
+    top: 38.945%;
     bottom: 3.5%;
     left: 19%;
     right: 0.5%;
     border-radius: 25px;
+}
+.title-vertical{
+    position: absolute;
+    top: 5%;
+    right: 3.5%;
+}
+.title-horizontal{
+    position: absolute;
+    top: 15%;
+    left: 9%;
+}
+.title-vertical-alt{
+    position: absolute;
+    top: 2.5%;
+    right: 27.5%;
+}
+.title-horizontal-alt{
+    position: absolute;
+    top: 31%;
+    left: 27%
 }
 .v-align-flex{
     height: 100%;

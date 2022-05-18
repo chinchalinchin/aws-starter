@@ -7,4 +7,15 @@
                 'viewport-horizontal-alt': _conf.horizontalAlt()}"
     [class.mat-elevation-z3]="_conf.verticalAlt() || _conf.horizontalAlt()"
 >
+
 </div>
+<h1
+    id="home-title"
+    class="mat-h1"
+    [ngClass]="{'title-vertical' : _conf.vertical(), 
+                'title-horizontal': _conf.horizontal(),
+                'title-vertical-alt': _conf.verticalAlt(),
+                'title-horizontal-alt': _conf.horizontalAlt()}"
+>
+    {{ _conf.title }}
+</h1>

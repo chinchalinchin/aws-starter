@@ -1,1 +1,10 @@
-<p>about works!</p>
+<div 
+    id="about"
+    role="region"
+    [ngClass]="{'viewport-vertical' : _conf.vertical(), 
+                'viewport-horizontal': _conf.horizontal(),
+                'viewport-vertical-alt': _conf.verticalAlt(),
+                'viewport-horizontal-alt': _conf.horizontalAlt()}"
+    [class.mat-elevation-z3]="_conf.verticalAlt() || _conf.horizontalAlt()"
+>
+</div>
