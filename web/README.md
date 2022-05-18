@@ -39,13 +39,13 @@ The pipeline will use the _buildspec.yml_ in the project root to build and deplo
 
 ## Angular Universal
 
-[Angular Universal]() is installed in the application so the SPA can be prerendered. The following command run from the _app_ directory will generate the prerendered distribution in the _/app/dist_ folder,
+[Angular Universal](https://angular.io/guide/universal) is installed in the application so the SPA can be prerendered. The following command run from the _app_ directory will generate the prerendered distribution in the _/app/dist_ folder,
 
 ```bash
 npm run prerender
 ```
 
-When new pages are added, the _/app/routes.txt_ file must be updated to include that route, so the prerender
+The prerendering procedure generates an _index.html_ for each route in the application. The routing information is injected in the prerendering procedure from the _/app/routes.txt_ file. When new pages are added, the _/app/routes.txt_ file must be updated to include that route on a new line.
 
 ### SEOService
 
@@ -68,17 +68,61 @@ export interface Nav {
 }
 ```
 
-The `data` property of `Nav` is the [json+ld structured data](https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data) used by **Google** to [implement rich search result widgets](https://developers.google.com/search/docs/advanced/structured-data/search-gallery).
+The `data` property of `Nav` is the [json+ld structured data](https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data) used by **Google** to [implement rich search result widgets](https://developers.google.com/search/docs/advanced/structured-data/search-gallery). 
+
+The `MetaConfig` is another interface defined in the _/src/properties.ts_ file,
+
+```javascript
+export interface MetaConfig {
+  property: string;
+  content: string;
+}
+```
+
+This array of objects consists of the aforementioned `og` and `meta` attributes that will be injected during prerendering.
 
 ### MetaService
 
-TODO
+This service delivers information about the execution environment to the application.
+
+To help with designing responsive web applications, `MetaService` will emit an `Observable` called `screenWidth` everytime the viewport size hits one of the _"media breakpoints"_: `xs`, `s`, `md`, `lg`, `xl` or `xxl`. These breakpoints are emitted under the following conditions,
+
+```javascript
+if (width < 576) {
+    this.mediaBreakpoint.next('xs');
+} else if (width >= 576 && width < 768) {
+    this.mediaBreakpoint.next('sm');
+} else if (width >= 768 && width < 992) {
+    this.mediaBreakpoint.next('md');
+} else if (width >= 992 && width < 1200) {
+    this.mediaBreakpoint.next('lg');
+} else if (width >= 1200 && width < 1600) {
+    this.mediaBreakpoint.next('xl');
+} else {
+    this.mediaBreakpoint.next('xxl');
+}
+```
+
+where `width` is measured in pixels.
+
+`MetaService` also contains methods for determining whether the application is executing on the server (i.e. during prerendering), or on the browser. These methods are `isBrowser()` and `isServer()`. **NOTE**: `isBrowser() == !isServer()`. These methods come in handy if you need to call the `document` or `window` in the application. Since the application is prerendered, any unchecked calls to `document` or `window` will result in the prerender erring out. Therefore, before querying the DOM or invoking a window listener or whatever, you should wrap the call in a check to make sure the application is executing on the browser, i.e., 
+
+```typescript
+constructor(private meta: MetaService){}
+
+public domFunction(): void{
+    if(this.meta.isBrowser()){
+        document.getElementById('some-id')
+    }
+}
+```
+
 
 ### CloudFront Edge Handlers
 
-When an **Angular** application is prerendered, it will generate an _index.html_ for each route, as opposed to a normal **Angular** build that compiles a singe index.html and bootstraps the entire application from that entrypoint. The difference in this setup is how the server handles the initial request. In a normal application, every request, regardless of path, gets served the root _index.html_, and **Angular** handles the path with in-app routing. With a prerendered application, each request URI is routed to a handler on the server that returns that page's _index.html_ before **Angular** has a chance to intercede.
+When an **Angular** application is prerendered, it will generate an _index.html_ for each route, as opposed to a normal **Angular** build that compiles a singe _index.html_ and bootstraps the entire application from that entrypoint. The difference in this setup is how the server handles the initial request. In a normal application, every request, regardless of path, gets served the root _index.html_, and **Angular** handles the path with in-app routing. With a prerendered application, each request URI is routed to a handler on the server that returns that page's _index.html_ before **Angular** has a chance to intercede.
 
-In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append _index.html_ to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root _index.html_ and then pass the routing to the Angular app, instead of loading that route's index.html and bootstrapping from there. This would effectively make the prerendering process moot, since the static html generated by the prerender would not be served by the **CloudFront** distribution.
+In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append _index.html_ to the end of all routes, so the distribution will serve the correct index on each path. If unchanged, the default configuration will serve the root _index.html_ and then pass the routing to the **Angular** app, instead of loading that route's index.html and bootstrapping from there. This would effectively make the prerendering process moot, since the static html generated by the prerender would not be served by the **CloudFront** distribution.
 
 The script _/scripts/cloudfront/edge\_handler.js_ is added to the [Edge Function](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html) middleware of the **CloudFront** distribution during the **CI/CD** pipeline build to solve this problem. 
 
