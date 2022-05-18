@@ -108,11 +108,18 @@ where `width` is measured in pixels.
 `MetaService` also contains methods for determining whether the application is executing on the server (i.e. during prerendering), or on the browser. These methods are `isBrowser()` and `isServer()`. **NOTE**: `isBrowser() == !isServer()`. These methods come in handy if you need to call the `document` or `window` in the application. Since the application is prerendered, any unchecked calls to `document` or `window` will result in the prerender erring out. Therefore, before querying the DOM or invoking a window listener or whatever, you should wrap the call in a check to make sure the application is executing on the browser, i.e., 
 
 ```typescript
-constructor(private meta: MetaService){}
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(private meta: MetaService){}
 
-public domFunction(): void{
-    if(this.meta.isBrowser()){
-        document.getElementById('some-id')
+    public domFunction(): void{
+        if(this.meta.isBrowser()){
+            document.getElementById('some-id')
+        }
     }
 }
 ```
