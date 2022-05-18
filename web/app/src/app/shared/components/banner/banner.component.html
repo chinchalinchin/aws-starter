@@ -8,11 +8,12 @@
     <object 
         *ngIf="logoConf"
         [id]="logoConf.id"
-        class="logo"
         type="image/svg+xml" 
         [data]="logoConf.src | safe: 'resourceUrl'"
         role="img"
         [attr.aria-label]="logoConf.aria_label ? logoConf.aria_label : 'Company Logo'"
+        [ngClass]="{'logo-horizontal': _conf.horizontal(),
+                    'logo-vertical': _conf.vertical()}"
     ></object>
 
 </div>
