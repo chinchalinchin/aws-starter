@@ -16,4 +16,19 @@
                     'logo-vertical': _conf.vertical()}"
     ></object>
 
+    <div class="spacer"></div>
+
+    <div 
+        *ngFor="let nav of navConf"
+        class="nav-link v-align-flex"
+    >
+        <a
+            [id]="nav.nav_id"
+            [routerLink]="nav.path"
+            *ngIf="!nav.children"
+        >
+            {{nav.nav_title}}
+        </a>
+    </div>
+
 </div>

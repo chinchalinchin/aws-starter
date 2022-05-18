@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Nav } from 'src/models';
 import { ImgConfig } from 'src/properties';
 import { ConfService } from 'src/services/conf.service';
 
@@ -10,12 +11,13 @@ import { ConfService } from 'src/services/conf.service';
 export class BannerComponent implements OnInit {
 
   public logoConf: ImgConfig | undefined;
+  public navConf: Nav[];
 
   constructor(
     public _conf: ConfService
   ) {
     this.logoConf = this._conf.getImgConfig('logo-img');
-    console.log(this.logoConf);
+    this.navConf = this._conf.getMenuNavs();
   }
 
   ngOnInit(): void {

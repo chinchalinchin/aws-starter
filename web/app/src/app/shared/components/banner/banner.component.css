@@ -20,6 +20,12 @@
     margin-right: auto;
     margin-left: auto;
 }
+.spacer{
+    flex-grow: 1;
+}
+.nav-link{
+    padding-right: 2.5%;
+}
 @media (min-width:991px){
     .logo-horizontal{
         width: 10%;

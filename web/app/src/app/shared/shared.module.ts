@@ -7,6 +7,7 @@ import { SharedMaterialModule } from './shared-material.module';
 import { SafePipe } from './pipes/sanitize.pipe';
 import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule,
     SharedMaterialModule,
+    RouterModule,
   ],
   exports: [
     BannerComponent,

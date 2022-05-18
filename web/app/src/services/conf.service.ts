@@ -34,4 +34,8 @@ export class ConfService {
   public findNavByPath(path: string): Nav | undefined {
     return this.navConfig.filter((nav: Nav) => nav.path === path).pop();
   }
+
+  public getMenuNavs(): Nav[]{
+    return this.navConfig.filter((nav:Nav) => nav.menu);
+  }
 }

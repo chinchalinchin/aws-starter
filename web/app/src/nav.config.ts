@@ -90,4 +90,114 @@ export const NAV_CONFIG: Nav[] = [
         },
       ],
     },
+    {
+      path: '/about',
+      nav_title: 'About',
+      nav_id: 'about-nav',
+      page_title: 'title goes here',
+      page_description:
+        'description goes here',
+      menu: true,
+      data: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          url: 'url goes here',
+          logo: 'logo url goes here',
+        },
+      ],
+      meta: [
+        {
+          property: 'og:url',
+          content: 'url goes here',
+        },
+        {
+          property: 'og:image',
+          content: 'url goes here',
+        },
+        {
+          property: 'og:image:secure_url',
+          content: 'url goes here',
+        },
+        {
+          property: 'og:image:width',
+          content: '1024',
+        },
+        {
+          property: 'og:image:height',
+          content: '1024',
+        },
+        {
+          property: 'og:image:alt',
+          content: 'alt goes here',
+        },
+        {
+          property: 'twitter:image',
+          content: 'url goes here',
+        },
+        {
+          property: 'twitter:image:alt',
+          content: 'alt goes here',
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary',
+        },
+      ],
+    },
+    {
+      path: '/contact',
+      nav_title: 'Contact',
+      nav_id: 'about-nav',
+      page_title: 'title goes here',
+      page_description:
+        'description goes here',
+      menu: true,
+      data: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          url: 'url goes here',
+          logo: 'logo url goes here',
+        },
+      ],
+      meta: [
+        {
+          property: 'og:url',
+          content: 'url goes here',
+        },
+        {
+          property: 'og:image',
+          content: 'url goes here',
+        },
+        {
+          property: 'og:image:secure_url',
+          content: 'url goes here',
+        },
+        {
+          property: 'og:image:width',
+          content: '1024',
+        },
+        {
+          property: 'og:image:height',
+          content: '1024',
+        },
+        {
+          property: 'og:image:alt',
+          content: 'alt goes here',
+        },
+        {
+          property: 'twitter:image',
+          content: 'url goes here',
+        },
+        {
+          property: 'twitter:image:alt',
+          content: 'alt goes here',
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary',
+        },
+      ],
+    },
 ]
