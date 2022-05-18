@@ -13,6 +13,7 @@ export interface ImgConfig {
   title: string;
   src: string;
   alt: string;
+  aria_label?: string;
   style?: string;
   class?: string;
 }

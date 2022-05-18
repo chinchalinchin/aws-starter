@@ -5,5 +5,14 @@
     [ngClass]="{'banner-horizontal': _conf.horizontal(), 
                 'banner-vertical': _conf.vertical() }"
 >
-    <h1 class="mat-h1">Name</h1>
+    <object 
+        *ngIf="logoConf"
+        [id]="logoConf.id"
+        class="logo"
+        type="image/svg+xml" 
+        [data]="logoConf.src | safe: 'resourceUrl'"
+        role="img"
+        [attr.aria-label]="logoConf.aria_label ? logoConf.aria_label : 'Company Logo'"
+    ></object>
+
 </div>

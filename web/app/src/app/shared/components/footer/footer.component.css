@@ -2,12 +2,5 @@
     position: absolute;
     bottom: 0%;
     height: 2.5%;
-}
-.footer-horizontal{
     width: 100%;
-}
-.footer-vertical{
-    top: 97.5%;
-    left: 15%;
-    right: 0%;
 }

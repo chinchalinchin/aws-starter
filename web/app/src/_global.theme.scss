@@ -21,6 +21,9 @@
   .bg-primary {
     background-color: map-get($primary-palette, 500);
   }
+  .bg-primary-light{
+    background-color: map-get($primary-palette, 50);
+  }
   .txt-default {
     color: map-get($primary-palette, lighter-contrast);
   }
