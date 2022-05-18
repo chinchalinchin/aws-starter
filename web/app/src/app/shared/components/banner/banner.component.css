@@ -25,6 +25,12 @@
     justify-content: flex-start;
     border-radius: 25px;
 }
+.banner-horizontal-alt{
+   top: 9.5%;
+   bottom: 71.3%;
+   left: 0%;
+   right: 0%;
+}
 .logo-vertical{
     width:80%;
     margin-right: auto;

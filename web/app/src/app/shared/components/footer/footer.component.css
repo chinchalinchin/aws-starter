@@ -4,10 +4,16 @@
     height: 2.5%;
     width: 100%;
     display: flex;
-    flex-direction: row;
 }
-.footer-vertical, .footer-horizontal{
+.footer-vertical, 
+.footer-horizontal,
+.footer-vertical-alt
+{
+    flex-direction: row;
     justify-content: center;
+}
+.footer-horizontal-alt{
+    flex-direction: row-reverse;
 }
 #copyright-icon{
     transform: scale(0.5);

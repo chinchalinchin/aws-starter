@@ -24,6 +24,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 77.5%;
     border-radius: 25px;
 }
+.viewport-horizontal-alt{
+    position: absolute;
+    top: 34.445%;
+    bottom: 3.5%;
+    left: 19%;
+    right: 0.5%;
+    border-radius: 25px;
+}
 .v-align-flex{
     height: 100%;
     display: flex;
