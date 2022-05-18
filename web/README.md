@@ -45,7 +45,11 @@ TODO
 
 TODO
 
-1. **orientation**:
+1. **title**: title given to the application. Used to configure controls, tooltips, etc. If a page is missing SEO attributes, the application will default to this title.
+
+2. **description**: description given to the application. Used to configure controls, tooltips, etc. If a page is missing SEO attributes, the application will default to this description.
+
+1. **orientation**: `vertical | vertical_alt | horizontal | horizontal`. Controls the orientation and layout of the application template.
 
 ### NavConfig
 

@@ -6,11 +6,13 @@
     display: flex;
 }
 .footer-vertical, 
-.footer-horizontal,
-.footer-vertical-alt
+.footer-horizontal
 {
     flex-direction: row;
     justify-content: center;
+}
+.footer-vertical-alt{
+    flex-direction: row;
 }
 .footer-horizontal-alt{
     flex-direction: row-reverse;
