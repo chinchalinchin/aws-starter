@@ -22,8 +22,16 @@ export class ConfService {
     return this.orientation === orientations.vertical;
   }
 
-  public horizontal(): boolean{
+  public verticalAlt(): boolean {
+    return this.orientation === orientations.vertical_alt;
+  }
+
+  public horizontal(): boolean {
     return this.orientation === orientations.horizontal;
+  }
+
+  public horizontalAlt(): boolean {
+    return this.orientation === orientations.horizontal_alt;
   }
 
   public getImgConfig(id: string): ImgConfig | undefined{
@@ -38,14 +46,7 @@ export class ConfService {
     return this.navConfig.filter((nav:Nav) => nav.menu);
   }
 
-  public flipOrientation(): void{
-    switch(this.orientation){
-      case orientations.vertical:
-        this.orientation = orientations.horizontal;
-        break;
-      case orientations.horizontal:
-        this.orientation = orientations.vertical;
-        break;
-    }
+  public setOrientation(thisOrientation: orientations): void{
+    this.orientation = thisOrientation;
   }
 }

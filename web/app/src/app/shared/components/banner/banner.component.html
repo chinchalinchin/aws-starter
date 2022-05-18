@@ -3,7 +3,8 @@
     class="mat-elevation-z3"
     role="banner"
     [ngClass]="{'banner-horizontal': _conf.horizontal(), 
-                'banner-vertical': _conf.vertical() }"
+                'banner-vertical': _conf.vertical(),
+                'banner-vertical-alt': _conf.verticalAlt() }"
 >
     <object 
         *ngIf="logoConf"
@@ -29,7 +30,7 @@
         *ngFor="let nav of navConf"
         class="nav-link"
         [ngClass]=" {'v-align-flex': _conf.horizontal(),
-                     'h-align-flex': _conf.vertical(),
+                     'h-align-flex': _conf.vertical() || _conf.verticalAlt(),
                      'vert-nav-link': _conf.vertical()}"
     >
         <a

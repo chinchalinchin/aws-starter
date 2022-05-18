@@ -37,6 +37,18 @@ git push --set-upstream codecommit master
 
 The pipeline will use the _buildspec.yml_ in the project root to build and deploy the **Angular** application to an **S3**-**CloudFront** distribution. See [CI/CD with Angular on AWS]() for more a thorough explanation of all the different components of the pipeline.
 
+## Configuration
+
+TODO
+
+### AppConfig
+
+TODO
+
+1. **orientation**:
+
+### NavConfig
+
 ## Angular Universal
 
 [Angular Universal](https://angular.io/guide/universal) is installed in the application so the SPA can be prerendered. The following command run from the _app_ directory will generate the prerendered distribution in the _/app/dist_ folder,

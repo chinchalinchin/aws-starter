@@ -16,6 +16,15 @@
     flex-direction: column;
     justify-content: flex-start;
 }
+.banner-vertical-alt{
+    top: 10%;
+    width: 15%;
+    height: 60%;
+    right: 5%;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 25px;
+}
 .logo-vertical{
     width:80%;
     margin-right: auto;

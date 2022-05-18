@@ -5,6 +5,8 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+.footer-vertical, .footer-horizontal{
     justify-content: center;
 }
 #copyright-icon{
