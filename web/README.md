@@ -6,7 +6,11 @@ This repository is curated by the [Cumberland Cloud](https://cumberland-cloud.co
 
 The _cloudformation.yml_ template in the repository will provision all the resources you need to deploy the **Angular** app to the cloud. 
 
-See [Angular on AWS](https://cumberland-cloud.com/blog/article/angular_on_aws) for more information on the **CloudFormation** template and how to use it. 
+The next section gives a high-level overview. See [Angular on AWS](https://cumberland-cloud.com/blog/article/angular_on_aws) for more information on the **CloudFormation** template and how to use it.
+
+### Overview
+
+TODO
 
 ### Quickstart
 
@@ -15,6 +19,16 @@ If you have a domain, a hosted zone ID and an **ACM** SSL certificate ARN **and*
 ```bash
 ./scripts/provision-stack
 ```
+
+The script will prompt you to enter all of the previously mentioned information. Alternatively, you can copy the `.sample.env` file into a new `.env` file and adjust the variables there. This file is included in the `.gitignore`, so the values you store in this file will not be committed to the repo.
+
+```bash
+cp .sample.env .env
+```
+
+### CloudFront Edge Handlers
+
+TODO
 
 ## CI/CD
 
@@ -29,11 +43,17 @@ The pipeline will use the _buildspec.yml_ in the project root to build and deplo
 
 ## Angular Universal
 
-TODO
+[Angular Universal]() is installed in the application so the SPA can be prerendered. The following command run from the _app_ directory will generate the prerendered distribution in the _dist_ folder,
+
+```bash
+npm run prerender
+```
+
+When new pages are added, the `/app/routes.txt` file must be updated to include that route, so the prerender
 
 ### SEOService
 
-TODO
+This services uses the configuration file `/app/src/nav.config.ts` to inject `meta` and `og` attributes in the HTML document during the prerendering process. This assists web crawlers and search engine bots in discovering the site. 
 
 ### MetaService
 

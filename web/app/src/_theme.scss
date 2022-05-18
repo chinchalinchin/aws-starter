@@ -3,7 +3,10 @@
 
 @use "./global.theme" as global;
 @use "./app/app.theme" as app;
+@use "./app/home/home.theme" as home;
+@use "./app/shared/components/banner/banner.theme" as banner;
 @use "./app/shared/components/error/error.theme" as error;
+@use "./app/shared/components/footer/footer.theme" as footer;
 
 @import "~@angular/material/theming";
 
@@ -217,5 +220,8 @@ $theme: mat-light-theme($primary, $complement, $warn);
 
 @include global.theme($theme);
 @include app.theme($theme);
+@include home.theme($theme);
+@include banner.theme($theme);
 @include error.theme($theme);
+@include footer.theme($theme);
 

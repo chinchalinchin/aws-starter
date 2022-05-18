@@ -116,7 +116,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_scale, tag);
+    let triggerTag:string = formatTriggerTag(
+      AnimationTriggers.cntl_scale, 
+      tag
+    );
 
     return trigger(triggerTag, [
       state(
@@ -137,7 +140,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_highlight, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_highlight, 
+      tag
+    );
 
     return trigger(triggerTag, [
       state(
@@ -157,7 +163,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_fade, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_fade, 
+      tag
+    );
     return trigger(triggerTag, [
       state(
         BinaryState.off,
@@ -183,7 +192,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_expand, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_expand, 
+      tag
+    );
     return trigger(triggerTag, [
       state(
         BinaryState.on,
@@ -212,7 +224,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_enlarge, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_enlarge, 
+      tag
+    );
 
     return trigger(triggerTag, [
       state(
@@ -240,7 +255,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_dilate, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_dilate, 
+      tag
+    );
 
     return trigger(triggerTag, [
       state(
@@ -272,9 +290,12 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_position, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_position, 
+      tag
+    );
     let triggerConfig: any[] = [];
-    let validatedStart = validatePosition(start);
+    let validatedStart: KeyObject = validatePosition(start);
 
     triggerConfig.push(
       state(`${PositionStates.unmoved}`, style(validatedStart))
@@ -308,7 +329,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_swipe, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_swipe, 
+      tag
+    );
     return trigger(triggerTag, [
       transition(`* => ${SwipeStates.swipe_left}`, [
         animate(
@@ -341,7 +365,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_flip, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_flip, 
+      tag
+    );
     return trigger(triggerTag, [
       state(
         BinaryState.off,
@@ -366,7 +393,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.slide, tag);
+    let triggerTag:string = formatTriggerTag(
+      AnimationTriggers.slide, 
+      tag
+    );
 
     let first_reversal: string = reversed ? '' : '-';
     let second_reversal: string = reversed ? '-' : '';
@@ -429,7 +459,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.float, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.float, 
+      tag
+    );
 
     return trigger(triggerTag, [
       transition(
@@ -466,7 +499,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag: string = formatTriggerTag(AnimationTriggers.expand, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.expand, 
+      tag
+    );
 
     return trigger(triggerTag, [
       transition(':enter', [
@@ -497,7 +533,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.enlarge, tag);
+    let triggerTag = formatTriggerTag(
+      AnimationTriggers.enlarge, 
+      tag
+    );
 
     return trigger(triggerTag, [
       transition(':enter', [
@@ -521,7 +560,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.fade, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.fade, 
+      tag
+    );
 
     return trigger(triggerTag, [
       transition(':enter', [
@@ -546,7 +588,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.scale, tag);
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.scale, 
+      tag
+    );
 
     return trigger(triggerTag, [
       transition(`:enter`, [
@@ -643,7 +688,7 @@ export class AnimationControl {
     return false;
   }
 
-  public animatePosition(positionIndex: number) {
+  public position(positionIndex: number) {
     this.state = `${PositionStates.moved}_${positionIndex}`;
   }
 
