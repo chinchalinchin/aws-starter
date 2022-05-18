@@ -43,21 +43,42 @@ The pipeline will use the _buildspec.yml_ in the project root to build and deplo
 
 ## Angular Universal
 
-[Angular Universal]() is installed in the application so the SPA can be prerendered. The following command run from the _app_ directory will generate the prerendered distribution in the _dist_ folder,
+[Angular Universal]() is installed in the application so the SPA can be prerendered. The following command run from the _app_ directory will generate the prerendered distribution in the _/app/dist_ folder,
 
 ```bash
 npm run prerender
 ```
 
-When new pages are added, the `/app/routes.txt` file must be updated to include that route, so the prerender
+When new pages are added, the _/app/routes.txt_ file must be updated to include that route, so the prerender
 
 ### SEOService
 
-This services uses the configuration file `/app/src/nav.config.ts` to inject `meta` and `og` attributes in the HTML document during the prerendering process. This assists web crawlers and search engine bots in discovering the site. 
+This services uses the configuration file _/app/src/nav.config.ts_ to inject `meta` and `og` attributes in the HTML document during the prerendering process. This assists web crawlers and search engine bots in discovering the site. 
+
+The _nav.config.ts_ uses the interface defined in _/app/src/models.ts_ to configure the SEO attributes,
+
+```javascript
+export interface Nav {
+    path: string;
+    nav_id?: string;
+    nav_title?: string;
+    page_title?: string;
+    page_description?: string;
+    group?: string;
+    menu?: boolean;
+    data?: any;
+    children?: Nav[];
+    meta?: MetaConfig[];
+}
+```
+
+The `data` property of `Nav` is the [json+ld structured data](https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data) used by **Google** to [implement rich search result widgets](https://developers.google.com/search/docs/advanced/structured-data/search-gallery).
 
 ### MetaService
 
 TODO
+
+### sitemap.xml
 
 ## Angular Material
 
