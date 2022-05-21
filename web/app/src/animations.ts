@@ -56,13 +56,19 @@ export enum AnimationTriggers {
   cntl_scale = 'cntl_scale',
   cntl_position = 'cntl_position',
   cntl_skew = 'cntl_skew',
+  cntl_revolve = 'cntl_revolve',
+  cntl_rotate= 'cntl_rotate',
   cntl_flip = 'cntl_flip',
 }
 
 export enum AnimationPeriods {
+  micro = 0.25, 
   short = 0.5,
   medium = 1,
   long = 2,
+  extra_long = 4,
+  minute = 60,
+  ten = 600
 }
 
 function validatePosition(position: Position): KeyObject {
@@ -240,6 +246,38 @@ export class Animations {
         BinaryState.off,
         style({
           width: `${fromWidth}`,
+        })
+      ),
+      transition(`${BinaryState.on} <=> ${BinaryState.off}`, [
+        animate(`${animateLength}s`),
+        query('@*', animateChild(), { optional: true }),
+      ]),
+    ]);
+  }
+
+  public static getManualRevolveTrigger(
+    reversed: boolean = false,
+    tag: string | null | undefined = null,
+    animateLength: number = AnimationPeriods.minute
+  ): AnimationTriggerMetadata {
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_revolve, 
+      tag
+    );
+    let reversal: string = reversed ? '-' : '';
+
+
+    return trigger(triggerTag, [
+      state(
+        BinaryState.on,
+        style({
+          transform: `rotate(${reversal}360deg)`,
+        })
+      ),
+      state(
+        BinaryState.off,
+        style({
+          transform: 'rotate(0deg)',
         })
       ),
       transition(`${BinaryState.on} <=> ${BinaryState.off}`, [
@@ -634,6 +672,7 @@ export class AnimationControl {
     AnimationTriggers.cntl_fade,
     AnimationTriggers.cntl_skew,
     AnimationTriggers.cntl_flip,
+    AnimationTriggers.cntl_revolve,
   ];
   public stateTriggers: any[] = [
     AnimationTriggers.cntl_swipe,

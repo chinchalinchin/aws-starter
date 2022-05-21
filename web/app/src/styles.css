@@ -12,8 +12,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .viewport-vertical{
     position: absolute;
     top: 0%;
-    left: 15%;
-    width: 85%;
+    left: 31%;
+    width: 69%;
     height: 97.5%;
 }
 .viewport-vertical-alt{
@@ -45,7 +45,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .title-vertical-alt{
     position: absolute;
     top: 2.5%;
-    right: 27.5%;
+    right: 52.5%;
 }
 .title-horizontal-alt{
     position: absolute;
