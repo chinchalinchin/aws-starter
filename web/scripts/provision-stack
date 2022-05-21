@@ -94,6 +94,7 @@ then
   aws cloudformation create-stack \
         --stack-name "${APPLICATION^}-WebStack" \
         --template-body file://$STACK.yml \
+        --capabilities CAPABILITY_NAMED_IAM \
         --parameters ParameterKey=applicationName,ParameterValue=$APPLICATION \
                       ParameterKey=domainName,ParameterValue=$DOMAIN \
                       ParameterKey=certificateArn,ParameterValue=$CERTIFICATE_ARN \
@@ -110,6 +111,7 @@ then
   aws cloudformation update-stack \
           --stack-name "${APPLICATION^}-WebStack" \
           --template-body file://$STACK.yml \
+          --capabilities CAPABILITY_NAMED_IAM \
           --parameters ParameterKey=applicationName,ParameterValue=$APPLICATION \
                         ParameterKey=domainName,ParameterValue=$DOMAIN \
                         ParameterKey=certificateArn,ParameterValue=$CERTIFICATE_ARN \
